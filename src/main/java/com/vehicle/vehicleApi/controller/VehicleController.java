@@ -42,7 +42,7 @@ public class VehicleController {
 	 // booking insurance
 	@PostMapping("/bookinginsurance")
 	public ResponseEntity<ResponseObject>  save( @RequestBody BookingInsurance  e) {
-		ResponseObject map =vehicleService.create(e);
+		ResponseObject map =vehicleService.bookInsurance(e);
 	
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 		}
