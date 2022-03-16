@@ -8,6 +8,13 @@ public class ResumeBooking {
 	private int bookingid;
 	@NotNull
 	private int userid;
+	
+	
+	
+	public ResumeBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public ResumeBooking(int bookingid, int userid) {
 		super();
 		this.bookingid = bookingid;

@@ -1,4 +1,6 @@
 package com.vehicle.vehicleApi.controller;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vehicle.vehicleApi.entity.AdminConfigureIns;
 import com.vehicle.vehicleApi.entity.BookingInsurance;
 import com.vehicle.vehicleApi.entity.ConfirmInsurance;
+import com.vehicle.vehicleApi.entity.GetBookingInsurance;
 import com.vehicle.vehicleApi.entity.ResponseObject;
 import com.vehicle.vehicleApi.entity.ResumeBooking;
 import com.vehicle.vehicleApi.entity.SearchInsurance;
@@ -28,7 +31,7 @@ public class VehicleController {
 	
      //	for registering user
 	@PostMapping("/userregistration")
-	public ResponseEntity<ResponseObject>save( @RequestBody UserRegistration  e) {
+	public ResponseEntity<ResponseObject>save(@Valid @RequestBody UserRegistration  e) {
 
 		ResponseObject map =vehicleService.create(e);
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
@@ -36,27 +39,34 @@ public class VehicleController {
 	
 	    //get by vehicletype
 	@GetMapping("/seachinsurance")
-	public AdminConfigureIns findInsurance( @RequestBody AdminConfigureIns searchInsurance) {
+	public List<AdminConfigureIns> findInsurance( @Valid @RequestBody SearchInsurance searchInsurance) {
 		return vehicleService.findbyVehicletype(searchInsurance);
    }
-	 // booking insurance
+	
+	
+//	 // booking insurance
 	@PostMapping("/bookinginsurance")
-	public ResponseEntity<ResponseObject>  save( @RequestBody BookingInsurance  e) {
+	
+	
+	public ResponseEntity<ResponseObject>  save(@Valid  @RequestBody BookingInsurance  e) {
 		ResponseObject map =vehicleService.bookInsurance(e);
 	
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 		}
-	
+//	
 	     // confirm insurance
 		@PostMapping("/confirminsurance")
-		public ResponseEntity<ResponseObject>  save( @RequestBody ConfirmInsurance  e) {
+		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ConfirmInsurance  e) {
 			ResponseObject map =vehicleService.create(e);
 			return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 			}
 		
 		@PostMapping("/resumebooking")
-		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ResumeBooking  e) {
-			ResponseObject map =vehicleService.create(e);
-			return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
-			}
+		public GetBookingInsurance findInsurance( @RequestBody ResumeBooking resumeBooking) {
+			return vehicleService.findbyBookingid(resumeBooking.getBookingid());
+	   }
+//		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ResumeBooking  e) {
+//			ResponseObject map =vehicleService.create(e);
+//			return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
+			
 }

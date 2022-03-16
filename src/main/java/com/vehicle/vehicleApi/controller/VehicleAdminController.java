@@ -52,19 +52,7 @@ public class VehicleAdminController {
 
 
 
-//	
-//	@DeleteMapping("/adminconfig/{id}")
-//	public String deleteById(@PathVariable int id) {
-//		return repo.deleteById(id)+" new_adminconfig(s) delete from the database";
-//	}
-//	
-//	
-//	
-//	@PutMapping("/adminconfig/{id}")
-//	public String update(@RequestBody AdminConfigureIns e, @PathVariable int id) {
-//		return repo.update(e, id)+" new_adminconfig(s) updated successfully";
-//	}
-	
+
 	
 	//get payment 
 	@PostMapping("/adminpayment")

@@ -16,8 +16,6 @@ public class AdminConfigureIns {
 	@NotEmpty
 	private String vehicletype;
 	
-	
-	
 
 	public AdminConfigureIns( String vendorname,  int venderid,  int amount,
 			 String vehicletype) {

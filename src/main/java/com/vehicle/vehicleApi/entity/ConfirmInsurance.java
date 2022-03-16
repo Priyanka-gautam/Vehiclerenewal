@@ -1,34 +1,40 @@
 package com.vehicle.vehicleApi.entity;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class ConfirmInsurance {
+	
     private int id; 
     @NotNull
 	private int bookingid;
     @NotNull
 	private int transactionid;
-    
     @NotEmpty
 	private String paymentoption;
-    
+    @NotEmpty
+    private String cardtype;
     @NotNull
+    @Size(min = 12, max = 12, message = "cardnumber should have  12 characters")
     private int cardnumber;
-    
     @NotEmpty
    	private String cardholdername;
-    
-	
-//	public ConfirmInsurance( int bookingid,  int transactionid,  String paymentoption,
-//			int cardnumber,  String cardholdername) {
-//		super();
-//		this.bookingid = bookingid;
-//		this.transactionid = transactionid;
-//		this.paymentoption = paymentoption;
-//		this.cardnumber = cardnumber;
-//		this.cardholdername = cardholdername;
-//	}
+    @NotNull
+     private int amount;
+   
+	public ConfirmInsurance( int bookingid,  int transactionid, String paymentoption,
+			 String cardtype,  int cardnumber,  String cardholdername,  int amount) {
+		super();
+		this.bookingid = bookingid;
+		this.transactionid = transactionid;
+		this.paymentoption = paymentoption;
+		this.cardtype = cardtype;
+		this.cardnumber = cardnumber;
+		this.cardholdername = cardholdername;
+		this.amount = amount;
+	}
 	public int getId() {
 		return id;
 	}
@@ -53,7 +59,12 @@ public class ConfirmInsurance {
 	public void setPaymentoption(String paymentoption) {
 		this.paymentoption = paymentoption;
 	}
-
+	public String getCardtype() {
+		return cardtype;
+	}
+	public void setCardtype(String cardtype) {
+		this.cardtype = cardtype;
+	}
 	public int getCardnumber() {
 		return cardnumber;
 	}
@@ -66,5 +77,14 @@ public class ConfirmInsurance {
 	public void setCardholdername(String cardholdername) {
 		this.cardholdername = cardholdername;
 	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+    
+	
+
 }
 	
