@@ -65,8 +65,6 @@ public class VehicleController {
 		public GetBookingInsurance findInsurance( @RequestBody ResumeBooking resumeBooking) {
 			return vehicleService.findbyBookingid(resumeBooking.getBookingid());
 	   }
-//		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ResumeBooking  e) {
-//			ResponseObject map =vehicleService.create(e);
-//			return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
+
 			
 }
