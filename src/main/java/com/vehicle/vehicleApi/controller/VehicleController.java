@@ -46,14 +46,11 @@ public class VehicleController {
 	
 //	 // booking insurance
 	@PostMapping("/bookinginsurance")
-	
-	
 	public ResponseEntity<ResponseObject>  save(@Valid  @RequestBody BookingInsurance  e) {
 		ResponseObject map =vehicleService.bookInsurance(e);
 	
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
-		}
-//	
+		}	
 	     // confirm insurance
 		@PostMapping("/confirminsurance")
 		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ConfirmInsurance  e) {
