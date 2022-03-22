@@ -22,12 +22,17 @@ import com.vehicle.vehicleApi.entity.SearchInsurance;
 import com.vehicle.vehicleApi.entity.UserRegistration;
 import com.vehicle.vehicleApi.service.VehicleService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/api/v2")
+@Api(value = "Vehicle Renewal", description = "Operations for Renewal of the  vehicle ")
 public class VehicleController {
 	@Autowired
 	private VehicleService vehicleService;
-	
 	
      //	for registering user
 	@PostMapping("/userregistration")

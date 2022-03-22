@@ -17,14 +17,14 @@ public class BookingInsurance {
 	@NotNull
     private int bookingid;
     
-	public BookingInsurance(int userid, int venderid, String vehicletype, int vehiclenumber, int bookingid) {
-		super();
-		this.userid = userid;
-		this.venderid = venderid;
-		this.vehicletype = vehicletype;
-		this.vehiclenumber = vehiclenumber;
-		this.bookingid = bookingid;
-	}
+//	public BookingInsurance(int userid, int venderid, String vehicletype, int vehiclenumber, int bookingid) {
+//		super();
+//		this.userid = userid;
+//		this.venderid = venderid;
+//		this.vehicletype = vehicletype;
+//		this.vehiclenumber = vehiclenumber;
+//		this.bookingid = bookingid;
+//	}
 	public int getId() {
 		return id;
 	}
