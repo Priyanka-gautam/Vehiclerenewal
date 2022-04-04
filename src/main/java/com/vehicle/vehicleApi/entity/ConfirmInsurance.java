@@ -22,17 +22,7 @@ public class ConfirmInsurance {
    	private String cardholdername;
     @NotNull
      private int amount;
-//	public ConfirmInsurance( int bookingid,  int transactionid,  String paymentoption,
-//			 String cardtype, String cardnumber,String cardholdername, int amount) {
-//		super();
-//		this.bookingid = bookingid;
-//		this.transactionid = transactionid;
-//		this.paymentoption = paymentoption;
-//		this.cardtype = cardtype;
-//		this.cardnumber = cardnumber;
-//		this.cardholdername = cardholdername;
-//		this.amount = amount;
-//	}
+
 	public int getId() {
 		return id;
 	}

@@ -12,12 +12,7 @@ public class AdminPayment{
 	@NotNull
     private int offer ;
 	
-//	public AdminPayment(int gst, int cst, int offer) {
-//		super();
-//		this.gst = gst;
-//		this.cst = cst;
-//		this.offer = offer;
-//	}
+
 	
 
 	public int getId() {

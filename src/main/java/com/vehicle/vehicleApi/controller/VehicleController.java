@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,36 +34,77 @@ import io.swagger.annotations.ApiResponses;
 public class VehicleController {
 	@Autowired
 	private VehicleService vehicleService;
-	
-     //	for registering user
+	/**
+	 * This Post Request is used to register a user
+	 * 
+	 * userid will generate automatically
+	 *  
+	 * @return reponseobject this status code with message value
+	 */
+ 
 	@PostMapping("/userregistration")
-	public ResponseEntity<ResponseObject>save(@Valid @RequestBody UserRegistration  e) {
-
-		ResponseObject map =vehicleService.create(e);
+	public ResponseEntity<ResponseObject>save(@Valid @RequestBody UserRegistration  addUser) {
+		ResponseObject map =vehicleService.create(addUser);
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 		}
 	
-	    //get by vehicletype
+	
+	@PutMapping("/userupdate")
+	public ResponseEntity<ResponseObject>update(@Valid @RequestBody UserRegistration  e) {
+		ResponseObject map =vehicleService.updateUser(e);
+		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
+		}
+	
+	/**
+	 * This get Request is used to  search insurance
+	 * 
+	 *  FindbyVehicletype used to find the insurance vendors by vehicle type
+	 *  Admin configureIns api will be called here
+	 *  
+	 * @return reponseobject this status code with message value
+	 */
+	
 	@GetMapping("/seachinsurance")
 	public List<AdminConfigureIns> findInsurance( @Valid @RequestBody SearchInsurance searchInsurance) {
 		return vehicleService.findbyVehicletype(searchInsurance);
    }
 	
 	
-//	 // booking insurance
+	/**
+	 * This Post Request is used to book insurance 
+	 * 
+	 * bookingid will generate automatically
+	 *  amount of the vehicle insurance  also show
+	 *  
+	 * @return reponseobject this status code with message value
+	 */
 	@PostMapping("/bookinginsurance")
 	public ResponseEntity<ResponseObject>  save(@Valid  @RequestBody BookingInsurance  e) {
 		ResponseObject map =vehicleService.bookInsurance(e);
-	
 		return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 		}	
-	     // confirm insurance
+	
+	
+	/**
+	 * This Post Request is used to confirm insurance 
+	 * 
+	 * transaction id will generate automatically
+	 *  
+	 * @return reponseobject this status code with message value
+	 */
+	  
 		@PostMapping("/confirminsurance")
 		public ResponseEntity<ResponseObject>  save(@Valid @RequestBody ConfirmInsurance  e) {
-			ResponseObject map =vehicleService.create(e);
-			return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
+		ResponseObject map =vehicleService.confirmIns(e);
+	    return new ResponseEntity<ResponseObject>(map, HttpStatus.CREATED);
 			}
 		
+		
+		/**
+		 * This Post Request is used to resume booking insurance 
+		 *  
+		 * @return reponseobject this status code with message value
+		 */
 		@PostMapping("/resumebooking")
 		public GetBookingInsurance findInsurance( @RequestBody ResumeBooking resumeBooking) {
 			return vehicleService.findbyBookingid(resumeBooking.getBookingid());

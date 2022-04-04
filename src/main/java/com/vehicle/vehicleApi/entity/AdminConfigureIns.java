@@ -16,16 +16,7 @@ public class AdminConfigureIns {
 	@NotEmpty
 	private String vehicletype;
 	
-
-//	public AdminConfigureIns( String vendorname,  int venderid,  int amount,
-//			 String vehicletype) {
-//		super();
-//		this.vendorname = vendorname;
-//		this.venderid = venderid;
-//		this.amount = amount;
-//		this.vehicletype = vehicletype;
-//	}
-//	
+	
 	public AdminConfigureIns() {
 		super();
 		// TODO Auto-generated constructor stub

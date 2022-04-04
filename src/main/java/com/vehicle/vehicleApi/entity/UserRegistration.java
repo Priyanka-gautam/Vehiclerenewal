@@ -2,8 +2,11 @@ package com.vehicle.vehicleApi.entity;
 
 
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 public class UserRegistration {
 
@@ -11,16 +14,15 @@ public class UserRegistration {
 	
 	@NotNull
 	private int userid;
-	
 	@NotEmpty
-	private  String name;
-	
+	private  String name;	
 	@NotEmpty
 	private  String idprooftype;
-	
 	@NotNull
+//	@Range(min= 1, max= 10 ,message="please fill the idnumber")
 	private int idproofnumber; 
 	@NotNull
+//	@Range(min= 1, max= 10 ,message="please fill the idnumber")
 	private int vehiclenumber;
 	@NotEmpty
 	private String vehicletype ;

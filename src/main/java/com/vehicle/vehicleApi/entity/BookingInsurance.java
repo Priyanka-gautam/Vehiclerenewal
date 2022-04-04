@@ -16,15 +16,11 @@ public class BookingInsurance {
 	private int vehiclenumber;
 	@NotNull
     private int bookingid;
+	@NotNull
+	   private int totalamount;
     
-//	public BookingInsurance(int userid, int venderid, String vehicletype, int vehiclenumber, int bookingid) {
-//		super();
-//		this.userid = userid;
-//		this.venderid = venderid;
-//		this.vehicletype = vehicletype;
-//		this.vehiclenumber = vehiclenumber;
-//		this.bookingid = bookingid;
-//	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -60,6 +56,12 @@ public class BookingInsurance {
 	}
 	public void setBookingid(int bookingid) {
 		this.bookingid = bookingid;
+	}
+	public int getTotalamount() {
+		return totalamount;
+	}
+	public void setTotalamount(int totalamount) {
+		this.totalamount = totalamount;
 	}
 	public int maxidnumber() {
 		// TODO Auto-generated method stub
