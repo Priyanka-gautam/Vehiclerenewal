@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+
+  zookeeperb:
+    image: wurstmeister/zookeeper
+    container_name: zookeeperb
+    restart: always
+    ports:
+      - 2181:2181
+
+  version: '2'
+services:
+    message-server:
+        container_name: message-server
+        build:
+            context: docker-message-server
+            dockerfile: Dockerfile
+        image: message-server:latest
+        ports:
+            - 18888:8888
+        networks:
+            - spring-cloud-network
+    vehiclerenewal:
+        container_name: vehiclerenewal
+        build:
+            context: docker-vehiclerenewal
+            dockerfile: Dockerfile
+        image: vehiclerenewal:latest
+        ports:
+            - 19999:9999
+        networks:
+            - spring-cloud-network
+            
+  mysqldb2:
+    image: mysql:8
+    restart: unless-stopped
+    container_name: mysqldb2
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bank
+
+        vehicleapi:
+    image: newbvehicleapi
+    container_name: vehicleapi
+    depends_on:
+      - vehiclerenewal
+      - mysqldb2
+  
+    restart: always
+    ports:
+      - 8081:8081
+    depends_on:
+      - vehiclerenewal
+      - mysqldb2
+       links:
+      - vehiclerenewal:vehiclerenewal
